@@ -1,28 +1,14 @@
-# mdcat [![Build Status](https://travis-ci.org/samfoo/mdcat.svg?branch=master)](https://travis-ci.org/samfoo/mdcat)
+# mdcat (Package)
+This is a fork of [samfoo/mdcat](https://github.com/samfoo/mdcat), for the purposes of wrapping `mdcat`'s functionality into a package.
 
-`mdcat` is a simple application that renders
-[markdown](https://daringfireball.net/projects/markdown/) files in a
-terminal emulator (e.g. iterm2, gnome terminal).
+The following example would yeild the same result as invoking `mdcat` on a file containing `# Hello World!`.
+```go
 
-It attempts to render the markdown in a more readable manner than the
-source.
+import "github.com/philgebhardt/mdcat"
 
-## Instalation
+func main() {
+  markdown_string := fmt.Sprintf("# %s\n", "Hello World!") 
+  mdcat.Print(strings.NewReader(markdown_string))
+}
+```
 
-To install `mdcat`, set your `GOPATH` to where you'd like it installed (e.g.
-`export GOPATH=~/go`), and then:
-
-    $ go get github.com/samfoo/mdcat
-
-Before running, make sure your `PATH` includes `$GOPATH/bin`, e.g.
-
-    $ export PATH=$PATH:$GOPATH/bin
-
-## Example
-
-![Example rendering](example.png)
-
-## See Also
-
-* [blackfriday - golang markdown parser](https://github.com/russross/blackfriday)
-* [ansi - golang ansi console formatting](https://github.com/mgutz/ansi)
